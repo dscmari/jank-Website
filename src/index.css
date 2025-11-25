@@ -1,68 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-custom-darkblue: #0c2461;
+  --color-custom-green: #78e08f;
+  --color-custom-orange: #fa983a;
+  --color-custom-white: #f5f6fa;
+}
+
+@font-face {
+  font-family: 'Hedvig Serif';
+  src: url('fonts/Hedvig_Letters_Serif/HedvigLettersSerif-Regular-VariableFont_opsz.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+  font-display: swap; /* Verbessert das Laden auf langsamen Verbindungen */
+}
+
+@font-face {
+  font-family: 'Stack Sans Headline';
+  src: url('fonts/Stack_Sans_Headline/StackSansHeadline-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+  font-display: swap; /* Verbessert das Laden auf langsamen Verbindungen */
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
+.logo-headline {
+ font-family: 'Hedvig Serif', sans-serif;
+}
+
+.headline {
+  font-family: 'Stack Sans Headline', 'sans-serif';
+ 
+}
+
+.cta-button {
+    font-family: 'Stack Sans Headline', 'sans-serif';
+}
+
 h1 {
-  font-size: 3.2em;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+h2 {
+  font-size: 1.25em;
   line-height: 1.1;
+  margin-bottom: 0.5rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+
+/* Navbar */
+.burgermenu {
+  width: 40px;
+  height: 30px;
+  position: relative;
+ 
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.burgermenu > span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+    background-color: var(--color-custom-darkblue);
+}
+
+span:nth-child(1) {
+  top: 0px;
+}
+
+span:nth-child(2) {
+  top: 12px;
+}
+
+span:nth-child(3) {
+  top: 24px;
+}
+
+.top.open {
+  top: 12px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.middle.open {
+  opacity: 0;
+  left: -40px;
+}
+
+.bottom.open {
+  top: 12px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
